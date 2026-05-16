@@ -8,9 +8,69 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
-	<span class="product-item">
-		Apple
-		<span class="amount">4</span>
-	</span>
+    <div class="main">
+
+        <div class="left">
+            <div class="add-product">
+                <input type="text" placeholder="Назва товару" class="input-product">
+                <button class="add-button" data-tooltip="Add product">
+                    Додати
+                </button>
+            </div>
+
+            <span class="product-item">
+          Apple
+                <button class="minus-button" data-tooltip="Minus button">-</button>
+          <span class="amount">4</span>
+                <button class="plus-button" data-tooltip="Plus button">+</button>
+                <button class="buy-button" data-tooltip="Buy button">Куплено</button>
+                <button class="delete-button" data-tooltip="Delete button">×</button>
+         </span>
+            <span class="product-item">
+          Tomato
+                <button class="minus-button" data-tooltip="Minus button">-</button>
+          <span class="amount">4</span>
+                <button class="plus-button" data-tooltip="Plus button">+</button>
+                <button class="buy-button" data-tooltip="Buy button">Куплено</button>
+                <button class="delete-button" data-tooltip="Delete button">×</button>
+            </span>
+            <span class="product-item">
+          Cookie
+                <button class="minus-button" data-tooltip="Minus button">-</button>
+          <span class="amount">4</span>
+                <button class="plus-button" data-tooltip="Plus button">+</button>
+                <button class="buy-button" data-tooltip="Buy button">Куплено</button>
+                <button class="delete-button" data-tooltip="Delete button">×</button>
+         </span>
+        </div>
+
+        <div class="right">
+            <div class="right-top">
+                <h2>Залишилося</h2>
+                <span class="product-item-right">
+                    Tomatoes
+                    <span class="amount-right">4</span>
+                </span>
+                <span class="product-item-right">
+                    Cookie
+                    <span class="amount-right">4</span>
+                </span>
+            </div>
+            
+            <div class="right-bottom">
+                <h2>Куплено</h2>
+                <span class="product-item-right">
+              Apple
+          <span class="amount-right">4</span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = " badge">
+        <span class="badge-buyList">Buy List</span>
+        <span class=" badge-name">Topchyi Violetta</span>
+    </div>
 </body>
 </html>
