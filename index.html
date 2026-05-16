@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-<html>
-<head lang="uk">
+<html lang="uk">
+<head>
     <meta charset="UTF-8">
-    <title>My Page</title>
-
-
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy List</title>
+    <link rel="stylesheet" href="task.css">
 </head>
 <body>
-	<span class="product-item">
-		Apple
-		<span class="amount">4</span>
-	</span>
+    <main class="main">
+        <section class="left" aria-label="Список покупок">
+            <div class="add-product">
+                <label for="product-input" class="visually-hidden">Назва товару</label>
+                <input 
+                    type="text" 
+                    id="product-input"
+                    placeholder="Назва товару" 
+                    class="input-product"
+                >
+                <button class="add-button" data-tooltip="Додати товар" aria-label="Додати товар">
+                    Додати
+                </button>
+            </div>
+
+            <ul class="product-list">
+                <li class="product-item">
+                    <span class="product-name">Apple</span>
+                    <div class="product-controls">
+                        <button class="minus-button" data-tooltip="Зменшити кількість" aria-label="Зменшити кількість">−</button>
+                        <span class="amount" aria-label="Кількість">4</span>
+                        <button class="plus-button" data-tooltip="Збільшити кількість" aria-label="Збільшити кількість">+</button>
+                        <button class="buy-button" data-tooltip="Позначити як куплене">Куплено</button>
+                        <button class="delete-button" data-tooltip="Видалити товар" aria-label="Видалити товар">×</button>
+                    </div>
+                </li>
+                <li class="product-item">
+                    <span class="product-name">Tomato</span>
+                    <div class="product-controls">
+                        <button class="minus-button" data-tooltip="Зменшити кількість" aria-label="Зменшити кількість">−</button>
+                        <span class="amount" aria-label="Кількість">4</span>
+                        <button class="plus-button" data-tooltip="Збільшити кількість" aria-label="Збільшити кількість">+</button>
+                        <button class="buy-button" data-tooltip="Позначити як куплене">Куплено</button>
+                        <button class="delete-button" data-tooltip="Видалити товар" aria-label="Видалити товар">×</button>
+                    </div>
+                </li>
+                <li class="product-item">
+                    <input type="text" class="product-name" value="Cheese" id="Cheese" aria-label="Назва товару">
+                    <div class="product-controls">
+                        <button class="minus-button" data-tooltip="Зменшити кількість" aria-label="Зменшити кількість">−</button>
+                        <span class="amount" aria-label="Кількість">4</span>
+                        <button class="plus-button" data-tooltip="Збільшити кількість" aria-label="Збільшити кількість">+</button>
+                        <button class="buy-button" data-tooltip="Позначити як куплене">Куплено</button>
+                        <button class="delete-button" data-tooltip="Видалити товар" aria-label="Видалити товар">×</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <aside class="right">
+            <section class="right-top" aria-label="Залишилося купити">
+                <h2>Залишилося</h2>
+                <ul class="right-list">
+                    <li class="product-item-right">
+                        <span>Tomatoes</span>
+                        <span class="amount-right">4</span>
+                    </li>
+                    <li class="product-item-right">
+                        <span>Cheese</span>
+                        <span class="amount-right">4</span>
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="right-bottom" aria-label="Куплені товари">
+                <h2>Куплено</h2>
+                <ul class="right-list">
+                    <li class="product-item-right product-item-right--bought">
+                        <span>Apple</span>
+                        <span class="amount-right">4</span>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </main>
+
+    <div class="badge" role="contentinfo" aria-label="Інформація про автора">
+        <span class="badge-title">Buy List</span>
+        <span class="badge-author">Shkarovska Anastasia</span>
+    </div>
 </body>
 </html>
