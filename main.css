@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #c8cfd5;
+    background-color: rgb(200, 207, 213);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.5;
     min-height: 100vh;
@@ -90,10 +90,37 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+.product-item.is-bought .product-name {
+    text-decoration: line-through;
+    color: rgb(153, 153, 153);
+}
+
 .product-name {
     font-size: 16px;
     font-weight: 500;
     color: rgb(51, 51, 51);
+    cursor: pointer;
+}
+
+.product-name:hover {
+    color: rgb(107, 91, 149);
+}
+
+.product-item.is-bought .product-name:hover {
+    color: rgb(153, 153, 153);
+    cursor: default;
+}
+
+.product-name-input {
+    flex: 1;
+    height: 36px;
+    border: 2px solid rgb(107, 91, 149);
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+    outline: none;
 }
 
 .product-controls {
@@ -129,7 +156,7 @@ body {
     color: rgb(51, 51, 51);
     margin-bottom: 10px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #6b5b95;
+    border-bottom: 2px solid rgb(107, 91, 149);
 }
 
 .right-list {
@@ -155,7 +182,7 @@ body {
 }
 
 .amount-right {
-    background-color: #e67e22;
+    background-color: rgb(230, 126, 34);
     color: rgb(255, 255, 255);
     min-width: 32px;
     height: 32px;
@@ -167,9 +194,12 @@ body {
     font-size: 14px;
 }
 
-#Cheese:focus{
-    border: rgb(70, 9, 226);
+.empty-note {
+    font-size: 14px;
+    color: rgb(153, 153, 153);
+    font-style: italic;
 }
+
 button {
     cursor: pointer;
     transition: transform 0.15s ease, opacity 0.15s ease;
@@ -184,7 +214,7 @@ button:active {
 }
 
 button:focus-visible {
-    outline: 3px solid #aa9b10;
+    outline: 3px solid rgb(170, 155, 16);
     outline-offset: 2px;
 }
 
@@ -214,20 +244,36 @@ button:focus-visible {
 }
 
 .plus-button {
-    background-color: rgb(39, 174, 96);
+    background-color: rgb(91, 141, 201);
 }
 
 .minus-button {
-    background-color: rgb(231, 76, 60);
+    background-color: rgb(147, 112, 113);
+}
+
+.minus-button:disabled {
+    opacity: 0.3;
+    cursor: default;
 }
 
 .buy-button {
     height: 32px;
-    padding: 0 15px;
+    padding: 0 12px;
     border: none;
     border-radius: 8px;
-    background-color: rgb(91, 141, 201);
-    color:  rgb(255, 255, 255);
+    background-color: rgb(107, 91, 149);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.uncheck-button {
+    height: 32px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #717b74;
+    color: rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 500;
 }
@@ -236,216 +282,12 @@ button:focus-visible {
     width: 32px;
     height: 32px;
     border: none;
-    border-radius: 8px;
+    border-radius: 50%;
     background-color: rgb(192, 57, 43);
     color: rgb(255, 255, 255);
     font-size: 18px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-button {
-    position: relative;
-}
-
-button::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px) scale(0.8);
-    white-space: nowrap;
-    
-    background-color: rgb(107, 91, 149);
-    color: rgb(255, 255, 255);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 400;
-    
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    
-    transition: 
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
-    
-    z-index: 100;
-}
-
-button::before {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(14px);
-    
-    border: 6px solid transparent;
-    border-top-color: rgb(107, 91, 149);
-    
-    opacity: 0;
-    visibility: hidden;
-    
-    transition: 
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
-    
-    z-index: 100;
-}
-
-button:hover::after,
-button:focus-visible::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-8px) scale(1);
-}
-
-button:hover::before,
-button:focus-visible::before {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-2px);
-}
-
-.badge {
-    position: fixed;
-    left: 20px;
-    bottom: 0;
-    
-    width: 160px;
-    height: 50px;
-    overflow: hidden;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    background-color: rgb(91, 61, 140);
-    color: rgb(255, 255, 255);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    
-    transition: 
-        height 0.3s ease,
-        background-color 0.3s ease;
-    
-    z-index: 1000;
-}
-
-.badge-title {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.badge-author {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 0.3s ease 0.1s;
-}
-
-.badge:hover,
-.badge:focus-within {
-    height: 100px;
-    background-color: rgb(183, 7, 171);
-}
-
-.badge:hover .badge-author,
-.badge:focus-within .badge-author {
-    opacity: 1;
-}
-
-@media (max-width: 650px) {
-    .main {
-        grid-template-columns: 1fr;
-    }
-    
-    .product-item {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
-    }
-    
-    .product-controls {
-        width: 100%;
-        justify-content: flex-end;
-    }
-    
-    .badge {
-        left: 10px;
-        width: 140px;
-    }
-}
-
-@media (max-width: 400px) {
-    body {
-        padding: 10px;
-    }
-    
-    .product-controls {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-}
-
-@media print {
-    body {
-        background-color: rgb(255, 255, 255);
-        padding: 0;
-    }
-    
-    .main {
-        box-shadow: none;
-    }
-    
-    .left,
-    .right {
-        box-shadow: none;
-        border: 1px solid #333;
-    }
-    
-    .badge {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 15px 25px;
-        margin-top: 30px;
-        
-        background-color: rgb(255, 255, 255);
-        border: 3px solid rgb(91, 61, 140);
-        border-radius: 12px;
-        color: rgb(51, 51, 51);
-    }
-    
-    .badge-title {
-        display: none;
-    }
-    
-    .badge-author {
-        height: auto;
-        opacity: 1;
-        font-size: 16px;
-        font-weight: 600;
-        color: rgb(91, 61, 140);
-    }
-    
-    .badge-author::before {
-        content: 'Автор: ';
-    }
-    
-    button::after,
-    button::before {
-        display: none;
-    }
 }
